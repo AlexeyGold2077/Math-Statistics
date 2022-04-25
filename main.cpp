@@ -24,6 +24,7 @@ int main()
     int num = 0;
     char* chbuffer = new char[10000];
     inputFile.getline(chbuffer, 10000);
+    inputFile.close();
     while (chbuffer[now] != endSeparator)
     {
         if (chbuffer[now] == separator)
@@ -35,6 +36,10 @@ int main()
     num++;
     now = 0;
     float* numbers = new float[num];
+    for (int i = 0; i < num; ++i)
+    {
+        numbers[i] = 0;
+    }
     num = 0;
     while (chbuffer[now] != endSeparator)
     {
@@ -152,7 +157,7 @@ int main()
     cout << endl
          << endl
          << "Колличество элементов - " << num << endl
-         << "Мода - " << moda << endl
+         //<< "Мода - " << moda << endl
          << "Медиана - " << mediana << endl
          << "Среднее арифметическое - " << average << endl
          << "Размах - " << max - min << endl;
