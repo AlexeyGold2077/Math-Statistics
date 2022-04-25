@@ -5,10 +5,12 @@ using namespace std;
 
 int main()
 {
+    
  //configuration variables
  char separator = ' ';
  char endSeparator = '.';
  //end of configuration variables
+
  setlocale(LC_ALL, "Russian");
  string path = "Input.txt";
  ifstream inputFile(path);
@@ -100,7 +102,7 @@ int main()
    }
   }
  }
-
+system("clear");
  cout << "Ваш упорядоченный ряд - ";
  for (int i = 0; i < num; i++)
  {
@@ -109,7 +111,8 @@ int main()
  float moda = 0;
  float mediana = 0;
  float average = 0;
- //размах
+ float min = mass[0];
+ float max = mass[0];
  if ((num % 2) != 0)
  {
   mediana = (int)mass[num / 2];
@@ -124,5 +127,19 @@ int main()
   temp += mass[i];
  }
  average = (temp / num);
- cout << endl << endl << "Колличество элементов - " << num << endl << "Мода - " << moda << endl << "Медиана - " << mediana << endl << "Среднее арифметическое - " << average << endl;
+ for (int i = 0; i < num; ++i)
+ {
+     if (max < mass[i])
+     {
+         max = mass[i];
+     }
+ }
+ for (int i = 0; i < num; ++i)
+ {
+     if (min > mass[i])
+     {
+         min = mass[i];
+     }
+ }
+ cout << endl << endl << "Колличество элементов - " << num << endl << "Мода - " << moda << endl << "Медиана - " << mediana << endl << "Среднее арифметическое - " << average << endl << "Размах - " << max - min << endl;
 }
